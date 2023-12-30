@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repositories\BookRepository\BookRepository;
 use App\Repositories\BookRepository\IBookRepository;
+use App\Repositories\CategoryRepository\CategoryRepository;
+use App\Repositories\CategoryRepository\ICategoryRepository;
 use App\Repositories\GenericRepositories\GenericRepository;
 use App\Repositories\GenericRepositories\IGenericRepository;
 use App\Repositories\UserRepository\IUserRepository;
@@ -19,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(IGenericRepository::class, GenericRepository::class);
         $this->app->bind(IUserRepository::class, UserRepository::class);
+        $this->app->bind(ICategoryRepository::class, CategoryRepository::class);
     }
     public function boot(): void
     {
