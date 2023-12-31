@@ -22,7 +22,14 @@ class StoreBookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'pages_count' => 'required|integer|min:1',
+            'photo_url' => 'nullable|url',
+            'published_year' => 'required|integer|min:1',
+            'description' => 'nullable|string',
+            'has_discount' => 'nullable|boolean',
+            'discount' => 'nullable|numeric|min:0|max:100',
+            'category_id' => 'required|exists:categories,id',
         ];
     }
 }
