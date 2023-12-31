@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use App\Services\BookService;
 
 class BookController extends Controller
 {
+    public function __construct(protected BookService $service)
+    {
+    }
+
     public function index()
     {
-        //
+        $books = $this->service->index();
+        return $books;
     }
 
     /**
