@@ -14,13 +14,17 @@ class AuthorController extends Controller
     {
 
     }
+    public function index()
+    {
+        $authors = $this->service->index();
+        return $authors;
+    }
 
     public function store(StoreAuthorRequest $request)
     {
         $author = $this->service->insert($request);
         return $author;
     }
-
     public function show($id)
     {
         try {
@@ -30,8 +34,6 @@ class AuthorController extends Controller
             return response()->json(['errors' => "Author not found with ID: {$id}"], 404);
         }
     }
-
-
     public function edit(Author $author)
     {
 

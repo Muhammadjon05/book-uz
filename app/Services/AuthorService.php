@@ -7,6 +7,11 @@ use App\Models\Author;
 
 class AuthorService
 {
+    public function index()
+    {
+        $authors = Author::with('books')->get();
+        return $authors;
+    }
     public function insert(StoreAuthorRequest $request)
     {
         $author = new Author();

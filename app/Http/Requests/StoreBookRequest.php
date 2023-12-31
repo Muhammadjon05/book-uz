@@ -11,14 +11,8 @@ class StoreBookRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
@@ -30,6 +24,8 @@ class StoreBookRequest extends FormRequest
             'has_discount' => 'nullable|boolean',
             'discount' => 'nullable|numeric|min:0|max:100',
             'category_id' => 'required|exists:categories,id',
+            'authors' => 'required|array',
+            'authors.*.id' => 'required|integer|exists:authors,id',
         ];
     }
 }
