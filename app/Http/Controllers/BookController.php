@@ -19,28 +19,19 @@ class BookController extends Controller
         return $books;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreBookRequest $request)
-    {
-        //
-    }
+        {
+            $book = $this->service->insert($request);
+            return $book;
+}
 
     /**
      * Display the specified resource.
      */
-    public function show(Book $book)
+    public function show($id)
     {
-        //
+        $book = $this->service->byId($id);
+        return $book;
     }
 
     /**
@@ -56,14 +47,12 @@ class BookController extends Controller
      */
     public function update(UpdateBookRequest $request, Book $book)
     {
-        //
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Book $book)
+    public function destroy($id)
     {
-        //
+        $this->service->delete($id);
+        return response()->json(['result'=>'deleted']);
     }
 }

@@ -7,6 +7,11 @@ use App\Models\Category;
 
 class CategoryService
 {
+    public function index()
+    {
+        $categories = Category::with('books')->get();
+        return $categories;
+    }
     public function insert(StoreCategoryRequest $request)
     {
         $category = new Category();
