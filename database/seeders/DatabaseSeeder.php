@@ -19,7 +19,9 @@ class DatabaseSeeder extends Seeder
             AuthorSeeder::class,
             BookSeeder::class,
             UserSeeder::class,
-            ReviewSeeder::class
+            ReviewSeeder::class,
+            RegionSeeder::class,
+            DistrictSeeder::class
         ]);
     }
 }

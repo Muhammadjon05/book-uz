@@ -39,20 +39,11 @@ class DeliveryMethodController extends Controller
      */
     public function edit(Delivery_method $delivery_method)
     {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    }
     public function update(UpdateDelivery_methodRequest $request, Delivery_method $delivery_method)
     {
-        //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         try {
