@@ -11,12 +11,31 @@ class Order extends Model
 
     protected $fillable =
         [
-        'delivery_method_id',
-        'user_id',
-        'total_price'];
+            'user_id',
+            'total_price',
+            'region_id',
+            'district_id',
+            'delivery_method_id',
+            'street',
+            'longitude',
+            'latitude',
+            'customer_firstname',
+            'customer_lastname',
+            'phone_number',
 
-    public function books()
+        ];
+
+    public function region()
     {
-        return $this->hasMany(Book::class);
+        return $this->belongsTo(Region::class);
+    }
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
