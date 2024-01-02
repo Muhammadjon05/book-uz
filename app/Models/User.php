@@ -33,11 +33,10 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
+    public function cartitems()
+    {
+        return $this->hasMany(CartItem::class);
+    }
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',

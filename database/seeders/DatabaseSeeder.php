@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ReviewSeeder::class,
             RegionSeeder::class,
-            DistrictSeeder::class
+            DistrictSeeder::class,
+            DeliveryMethodSeeder::class
         ]);
     }
 }
